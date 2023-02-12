@@ -14,22 +14,28 @@ const CalculatorButton = ({
   btnStyle,
 }) => {
   const numValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
+  const actionValues = ["+", "-"];
+  const action = (valueA, valueB, actionType) => {
+    console.log(oldInput);
+    if (actionType === "+") {
+      setResult(valueA + valueB);
+      setOldInput(actionType);
+    }
+    if (actionType === "-") {
+      if (valueA >= valueB) {
+        setResult(valueA - valueB);
+      } else {
+        setResult(valueB - valueA);
+      }
+      setOldInput(actionType);
+    }
+  };
   const handler = (value) => {
     if (numValues.includes(value)) {
-      calculatedValue = calculatedValue + value;
-      setCalculatedValue(calculatedValue);
-      setOldInput(parseFloat(calculatedValue));
-    } else if (value === "+") {
-      setResult(result + oldInput);
-      setOldInput(parseFloat(result));
-      setCalculatedValue("");
-    } else if (value === "-") {
-      if (oldInput >= result) {
-        setResult(oldInput - result);
-      } else {
-        setResult(result - oldInput);
-      }
-      setOldInput(parseFloat(result));
+      setCalculatedValue(calculatedValue + value);
+    } else if (actionValues.includes(value)) {
+      setResult(calculatedValue);
+      action(parseFloat(result), parseFloat(calculatedValue), value);
       setCalculatedValue("");
     } else if (value === "AC") {
       setCalculatedValue("");
