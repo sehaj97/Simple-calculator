@@ -4,16 +4,26 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 const noPadding = css`
-  padding: 1px;
+  padding: 5px;
 `;
 const btnStyle = css`
-  padding: 25px;
+  padding: 10px;
   width: 100%;
+  text-align: center;
+  border-radius: 50%;
+`;
+const fourBtnStyle = css`
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
 `;
 const functionBtnStyle = css`
   background-color: #ffc107;
-  padding: 25px;
+  padding: 10px;
   width: 100%;
+  text-align: center;
+  border-radius: 50%;
 `;
 function Simple() {
   return (
@@ -117,14 +127,9 @@ function Simple() {
       </Row>
       <Row>
         <Col xs={4}></Col>
-        <Col xs={1} css={noPadding}>
-          <button type="button" class="btn btn-light" css={btnStyle}>
+        <Col xs={2} css={noPadding}>
+          <button type="button" class="btn btn-light" css={fourBtnStyle}>
             4
-          </button>
-        </Col>
-        <Col xs={1} css={noPadding}>
-          <button type="button" class="btn btn-light" css={btnStyle}>
-            5
           </button>
         </Col>
         <Col xs={1} css={noPadding}>
