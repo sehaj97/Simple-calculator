@@ -16,22 +16,24 @@ const style = css`
 function Navigation() {
   return (
     <div className="App">
-      <Nav justify variant="tabs" defaultActiveKey="/">
-        <Nav.Item>
-          <Link to="/" css={removeUnderline}>
-            <Nav.Link href="/" css={style}>
-              Simple Calculator
-            </Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/scientific" css={removeUnderline}>
-            <Nav.Link href="/scientific" css={style}>
-              Scientific Calculator
-            </Nav.Link>
-          </Link>
-        </Nav.Item>
-      </Nav>
+      <div className="hideIt">
+        <Nav justify variant="tabs" defaultActiveKey="/" className="hideIt">
+          <Nav.Item>
+            <Link to="/" css={removeUnderline}>
+              <Nav.Link href="/" css={style}>
+                Simple Calculator
+              </Nav.Link>
+            </Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="/scientific" css={removeUnderline}>
+              <Nav.Link href="/scientific" css={style}>
+                Scientific Calculator
+              </Nav.Link>
+            </Link>
+          </Nav.Item>
+        </Nav>
+      </div>
       <Outlet />
     </div>
   );

@@ -23,23 +23,25 @@ const SpecialBtnStyle = css`
   border-radius: 20px;
 `;
 const resultStyle = css`
-  font-size: 4rem;
-  text-align: right;
-  color: white;
-`;
-const inputStyle = css`
   font-size: 3rem;
   text-align: right;
-  color: grey;
+  color: white;
+  overflow-wrap: anywhere;
 `;
-function Simple({ calculatorValues, calculatedValue, setCalculatedValue }) {
+const inputStyle = css`
+  font-size: 2rem;
+  text-align: right;
+  color: grey;
+  overflow-wrap: anywhere;
+`;
+function Simple({ calculatorValues }) {
   const [inputB, setInputB] = useState("");
   const [inputA, setInputA] = useState("");
   const [operator, setOperator] = useState("");
   const [result, setResult] = useState("");
   return (
     <Container>
-      <h1>Simple Calculator</h1>
+      <h1>React Calculator</h1>
       <Row>
         <Col xs={2} sm={4}></Col>
         <Col xs={8} sm={4}>
