@@ -33,19 +33,19 @@ const inputStyle = css`
   color: grey;
 `;
 function Simple({ calculatorValues, calculatedValue, setCalculatedValue }) {
-  const [oldInput, setOldInput] = useState(0);
-  const [newCalculation, setNewCalculation] = useState(0);
-  const [result, setResult] = useState(newCalculation);
+  const [inputB, setInputB] = useState("");
+  const [inputA, setInputA] = useState("");
+  const [operator, setOperator] = useState("");
+  const [result, setResult] = useState("");
   return (
     <Container>
       <h1>Simple Calculator</h1>
       <Row>
         <Col xs={2} sm={4}></Col>
         <Col xs={8} sm={4}>
-          <h2 css={resultStyle}>{result}</h2>
-          <h3 css={inputStyle}>
-            {calculatedValue === "" ? "0" : calculatedValue}
-          </h3>
+          <h2 css={resultStyle}>{result === "" ? 0 : result}</h2>
+          <h3 css={inputStyle}>{`${inputB}${inputA}`}</h3>
+          <h3 css={inputStyle}>{inputA === "" ? 0 : inputA}</h3>
         </Col>
         <Col xs={2} sm={4}></Col>
       </Row>
@@ -56,27 +56,28 @@ function Simple({ calculatorValues, calculatedValue, setCalculatedValue }) {
             {valueSet.map((value) => {
               return (
                 <Col
-                  xs={value === "Delete" || value === "AC" ? 4 : 2}
-                  sm={value === "Delete" || value === "AC" ? 2 : 1}
+                  xs={value === "=" || value === "AC" ? 4 : 2}
+                  sm={value === "=" || value === "AC" ? 2 : 1}
                   css={noPadding}
                 >
                   <CalculatorButton
-                    calculatedValue={calculatedValue}
-                    setCalculatedValue={setCalculatedValue}
-                    oldInput={oldInput}
-                    setOldInput={setOldInput}
-                    newCalculation={newCalculation}
-                    setNewCalculation={setNewCalculation}
+                    inputA={inputA}
+                    setInputA={setInputA}
+                    inputB={inputB}
+                    setInputB={setInputB}
+                    operator={operator}
+                    setOperator={setOperator}
                     result={result}
                     setResult={setResult}
                     content={value}
                     btnStyle={
-                      value === "Delete" ||
+                      value === "=" ||
                       value === "AC" ||
                       value === "+" ||
                       value === "-" ||
                       value === "/" ||
-                      value === "X"
+                      value === "*" ||
+                      value === "%"
                         ? SpecialBtnStyle
                         : btnStyle
                     }

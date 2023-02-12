@@ -7,11 +7,11 @@ import "./App.css";
 
 function App() {
   const [calculatorValues, SetCalculatorValues] = useState([
-    ["AC", "Delete"],
+    ["AC", "="],
     ["1", "2", "3", "+"],
     ["4", "5", "6", "-"],
-    ["7", "8", "9", "X"],
-    ["0", ".", "=", "/"],
+    ["7", "8", "9", "*"],
+    ["0", ".", "%", "/"],
   ]);
   const [calculatedValue, setCalculatedValue] = useState("");
   return (
