@@ -13,13 +13,20 @@ function App() {
     ["7", "8", "9", "X"],
     ["0", ".", "=", "/"],
   ]);
+  const [calculatedValue, setCalculatedValue] = useState("");
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route
             index
-            element={<Simple calculatorValues={calculatorValues} />}
+            element={
+              <Simple
+                calculatorValues={calculatorValues}
+                calculatedValue={calculatedValue}
+                setCalculatedValue={setCalculatedValue}
+              />
+            }
           />
           <Route path="scientific" element={<Scientific />} />
         </Route>
